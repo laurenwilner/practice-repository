@@ -20,7 +20,7 @@ library(broom)
 le_data <- read_csv("./data/Life-expectancy-by-state-long.csv")
 
 # Run a regression model with time coded using a linear term
-mod1 <- lm(LE ~ year, dat = le_data %>% filter(state == "California", race == "black"))
+mod1 <- lm(LE ~ year, dat = le_data %>% filter(state == "California", race == "black", sex == "Male"))
 
 # Regression output
 tidy(mod1)
@@ -36,3 +36,6 @@ ggplot(data = le_data %>% filter(state == "California", race == "black", sex == 
 ggsave(plot = last_plot(), filename = "./images/ca-black-women-LE.png",
        width = 5, height = 5,device = "png"
         )
+
+write_csv(tidy(mod1), "./results/le-mod1-results.csv")
+# writing out results above
