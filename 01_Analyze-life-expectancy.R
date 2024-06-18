@@ -37,5 +37,5 @@ ggsave(plot = last_plot(), filename = "./images/ca-black-women-LE.png",
        width = 5, height = 5,device = "png"
         )
 
-write_csv(tidy(mod1), "./results/results.csv")
+write_csv(tidy(mod1), "./results/le-mod1-results.csv")
 # writing out results above
